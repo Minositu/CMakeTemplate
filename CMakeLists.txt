@@ -2,7 +2,8 @@
 
 # Main Project
 project(main LANGUAGES CXX VERSION 1.0.0 DESCRIPTION "CMake example.")
-
+set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build/)
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build/)
 # MSVC Runtime config
 if(POLICY CMP0079 )
   cmake_policy(SET CMP0079 NEW)
@@ -20,12 +21,13 @@ add_subdirectory("Executable_src")
 # Include directories for each project 
 target_include_directories(MySuperExecutable PUBLIC "Executable_src/include")
 
-# Platform dependant libraries
+# Platform dependant config, definitions and libraries
 if(LINUX)
-  message("Current OS is LINUX")
-  set(CMAKE_CXX_FLAGS "-DPLATFORM_LINUX")
+  message("Current OS is ${CMAKE_SYSTEM_NAME}")
+   target_compile_definitions(MySuperSharedLibrary PUBLIC PLATFORM_LINUX)
   target_link_libraries( MySuperSharedLibrary "-lxcb" )
 elseif(WIN32)
-  message("Current OS is WIN32")
-  set(CMAKE_CXX_FLAGS "-DPLATFORM_WIN32")
+  message("Current OS is ${CMAKE_SYSTEM_NAME}")
+  target_compile_definitions(MySuperSharedLibrary PUBLIC PLATFORM_WIN32)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPLATFORM_WIN32")
 endif()

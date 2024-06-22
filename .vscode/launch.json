@@ -10,7 +10,7 @@
             "request": "launch",
             "MIMode": "gdb",
             "windows":{
-                "program": "${workspaceFolder}/out/build/x64-debug/Executable_src/MySuperExecutable.exe",
+                "program": "${workspaceFolder}/out/build/x64-debug/build/MySuperExecutable.exe",
                 "MIMode": "gdb",
                 "cwd": "${workspaceFolder}/",
                 "setupCommands": [
@@ -28,7 +28,7 @@
             },
             "linux": 
             {
-                "program": "${workspaceFolder}/out/build/linux-debug/CMakeProject2",
+                "program": "${workspaceFolder}/out/build/linux-debug/build/MySuperExecutable",
                 "args": [],
                 "stopAtEntry": false,
                 "cwd": "${fileDirname}",
@@ -55,7 +55,7 @@
             "request": "launch",
             "MIMode": "gdb",
             "windows":{
-                "program": "${workspaceFolder}/out/build/x64-debug/CMakeProject2.exe",
+                "program": "${workspaceFolder}/out/build/x64-debug/build/MySuperExecutable.exe",
                 "MIMode": "gdb",
                 "cwd": "${workspaceFolder}/",
                 "setupCommands": [
@@ -73,7 +73,7 @@
             },
             "linux": 
             {
-                "program": "${workspaceFolder}/out/build/linux-debug/CMakeProject2",
+                "program": "${workspaceFolder}/out/build/linux-debug/build/MySuperExecutable",
                 "args": [],
                 "stopAtEntry": false,
                 "cwd": "${fileDirname}",
