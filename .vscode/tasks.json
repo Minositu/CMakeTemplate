@@ -1,0 +1,19 @@
+{
+    "tasks": [
+        {
+            "type": "cmake",
+            "label": "Build All Debug",
+            "command": "build",
+            "targets": [
+                "all"
+            ],
+            "preset": "${command:cmake.activeBuildPresetName}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "General purpose build task"
+        }
+    ]
+}
