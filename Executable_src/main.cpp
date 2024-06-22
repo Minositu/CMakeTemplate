@@ -12,8 +12,9 @@
 int main()
 {
     printf("HelloWorld!\n");
-    dothing(0);
-    createWindow("Test", 0, 0, 450, 450);
+    int thing = 0;
+    thing = dothing(thing);
+    createWindow("CMakeExample", thing, thing, 450, 450);
 
     processMessages();
 

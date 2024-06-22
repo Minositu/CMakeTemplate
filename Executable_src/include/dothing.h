@@ -1,3 +1,6 @@
 #pragma once
 
-int dothing(int thing);
+extern "C"
+{
+    int dothing(int thing);
+}
