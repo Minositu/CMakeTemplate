@@ -8,4 +8,4 @@ This is a CMake template I'll be using moving forward for my projects!
 
 # Compiling
 
-Open in VSCode or VS 2022 and press ctrl + shift + b. Compiled binaries will be in /out/build/<preset-name>/build.
+Open in VSCode or VS 2022 and press ctrl + shift + b. Compiled binaries will be in /out/build/preset-name/build.
