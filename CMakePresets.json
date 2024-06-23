@@ -26,7 +26,8 @@
                 "strategy": "external"
             },
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "PRESET": "${presetName}"
             }
         },
         {
@@ -34,7 +35,8 @@
             "displayName": "x64 Release",
             "inherits": "x64-debug",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "PRESET": "${presetName}"
             }
         },
         {
@@ -46,7 +48,8 @@
                 "strategy": "external"
             },
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "PRESET": "${presetName}"
             }
         },
         {
@@ -54,7 +57,8 @@
             "displayName": "x86 Release",
             "inherits": "x86-debug",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "PRESET": "${presetName}"
             }
         },
         {
@@ -66,7 +70,9 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_C_COMPILER": "gcc",
-                "CMAKE_CXX_COMPILER": "g++"
+                "CMAKE_CXX_COMPILER": "g++",
+
+                "PRESET": "${presetName}"
             },
             "condition": {
                 "type": "equals",
@@ -88,7 +94,9 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "MinSizeRel",
                 "CMAKE_C_COMPILER": "gcc",
-                "CMAKE_CXX_COMPILER": "g++"
+                "CMAKE_CXX_COMPILER": "g++",
+
+                "PRESET": "${presetName}"
             },
             "condition": {
                 "type": "equals",
@@ -102,13 +110,73 @@
             }
         },
         {
+            "name": "android-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "installDir": "${sourceDir}/out/install/${presetName}"
+        },
+        {
+            "name": "android-debug-arm64-v8a",
+            "displayName": "Android Debug arm64-v8a",
+            "inherits": "android-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+
+                "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
+                "ANDROID_ABI": "arm64-v8a",
+                "ANDROID_PLATFORM": "25",
+                "PRESET": "${presetName}"
+            }
+        },
+        {
+            "name": "android-release-arm64-v8a",
+            "displayName": "Android Release arm64-v8a",
+            "inherits": "android-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel",
+
+                "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
+                "ANDROID_ABI": "arm64-v8a",
+                "ANDROID_PLATFORM": "25",
+                "PRESET": "${presetName}"
+            }
+        },
+        {
+            "name": "android-debug-arm64-v8a",
+            "displayName": "Android Debug arm64-v8a",
+            "inherits": "android-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+
+                "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
+                "ANDROID_ABI": "arm64-v8a",
+                "ANDROID_PLATFORM": "25",
+                "PRESET": "${presetName}"
+            }
+        },
+        {
+            "name": "android-release-arm64-v8a",
+            "displayName": "Android Release arm64-v8a",
+            "inherits": "android-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel",
+
+                "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
+                "ANDROID_ABI": "arm64-v8a",
+                "ANDROID_PLATFORM": "25",
+                "PRESET": "${presetName}"
+            }
+        },
+        {
             "name": "macos-debug",
             "displayName": "macOS Debug",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
             "installDir": "${sourceDir}/out/install/${presetName}",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "PRESET": "macos-debug"
             },
             "condition": {
                 "type": "equals",

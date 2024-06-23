@@ -1,5 +1,5 @@
 Project(CMakeSharedLibrary LANGUAGES CXX DESCRIPTION "CMake example.")
-add_library(MySuperSharedLibrary SHARED "CreateWin32Window.cpp" "createLinuxWindow.cpp")
+add_library(MySuperSharedLibrary SHARED "CreateWin32Window.cpp" "createLinuxWindow.cpp" "common.cpp")
 
 message("Configuring Shared Library")
 

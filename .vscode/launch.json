@@ -5,12 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": "TopLevelWindow"
+        },
+        {
             "name": "Launch",
             "type": "cppdbg",
             "request": "launch",
             "MIMode": "gdb",
             "windows":{
-                "program": "${workspaceFolder}/out/build/x64-debug/build/MySuperExecutable.exe",
+                "program": "${workspaceFolder}/build/x64-debug/MySuperExecutable.exe",
                 "MIMode": "gdb",
                 "cwd": "${workspaceFolder}/",
                 "setupCommands": [
@@ -28,7 +34,7 @@
             },
             "linux": 
             {
-                "program": "${workspaceFolder}/out/build/linux-debug/build/MySuperExecutable",
+                "program": "${workspaceFolder}/build/linux-debug/MySuperExecutable",
                 "args": [],
                 "stopAtEntry": false,
                 "cwd": "${fileDirname}",
@@ -55,7 +61,7 @@
             "request": "launch",
             "MIMode": "gdb",
             "windows":{
-                "program": "${workspaceFolder}/out/build/x64-debug/build/MySuperExecutable.exe",
+                "program": "${workspaceFolder}/build/x64-debug/MySuperExecutable.exe",
                 "MIMode": "gdb",
                 "cwd": "${workspaceFolder}/",
                 "setupCommands": [
@@ -73,7 +79,7 @@
             },
             "linux": 
             {
-                "program": "${workspaceFolder}/out/build/linux-debug/build/MySuperExecutable",
+                "program": "${workspaceFolder}/build/linux-debug/MySuperExecutable",
                 "args": [],
                 "stopAtEntry": false,
                 "cwd": "${fileDirname}",

@@ -6,3 +6,5 @@ void createWindow(std::string windowName, int posX = 0, int posY = 0, int width 
 bool processMessages();
 
 void shutdownWindow();
+
+int doAnotherThing(int thing);
