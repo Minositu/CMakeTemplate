@@ -5,6 +5,7 @@ This is a CMake template I'll be using moving forward for my projects!
 - if using VSCode the cmake VSCode extension.
 - gcc
 - g++
+- If using Java jdk must be in your PATH
 
 # Compiling
 

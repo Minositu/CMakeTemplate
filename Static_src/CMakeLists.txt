@@ -1,5 +1,5 @@
 Project(MySuperStaticLibrary LANGUAGES C VERSION 1.0.0 DESCRIPTION "CMake example.")
-add_library(MySuperStaticLibrary STATIC "dothing.c")
+add_library(MySuperStaticLibrary "dothing.c")
 
 message("Configuring static library")
 

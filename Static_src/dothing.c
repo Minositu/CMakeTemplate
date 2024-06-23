@@ -1,6 +1,6 @@
 #include <stdio.h>
-#ifdef PLATFORM_ANDROID
 #include <jni.h>
+#ifdef PLATFORM_ANDROID
 #include <android/log.h>
 #endif
 
@@ -11,7 +11,16 @@ int dothing(int thing)
     return thing + 1;
 }
 
-#ifdef PLATFORM_ANDROID
+#ifndef PLATFORM_ANDROID
+JNIEXPORT jint JNICALL
+Java_NativeMethods_TestFunction(JNIEnv* env, jclass clazz, int test)
+{
+    printf("C code called! Pre result: %d\n", test);
+    printf("C code called! Result: %d\n", test + 1);
+    return test + 1;
+}
+
+#else
 JNIEXPORT void JNICALL
 Java_org_example_cpp_AppActivity_didRegister(JNIEnv *env, jclass clazz, jstring str, jstring str2) 
 {

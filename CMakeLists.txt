@@ -8,8 +8,8 @@ endif()
 # Main Project
 project(main LANGUAGES CXX VERSION 1.0.0 DESCRIPTION "CMake example.")
 set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/../../../build/${PRESET}")
-message(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/../../../build/${PRESET}")
+set (CMAKE_PDB_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/../../../build/${PRESET}")
 
 # Policy configs
 if(POLICY CMP0079 )
@@ -28,7 +28,11 @@ add_subdirectory("Executable_src")
 
 if (NOT ANDROID)
   find_package(Java REQUIRED)
+  find_package(JNI REQUIRED)  # Disable this if you're not using the java native interface.
+  
+  message("${JAVA_INCLUDE_PATH}")
   include(UseJava)
+  target_include_directories(MySuperStaticLibrary PUBLIC "${JNI_INCLUDE_DIRS}")
   add_subdirectory("Java_src")
 endif()
 # Include directories for each project 

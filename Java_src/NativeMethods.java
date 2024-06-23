@@ -1,6 +1,6 @@
 public class NativeMethods
 {
-    public static native void TestFunction();
+    public static native int TestFunction(int test);
 
     public static void Test()
     {
