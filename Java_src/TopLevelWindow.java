@@ -20,6 +20,7 @@ public class TopLevelWindow
     public static void main(String[] args)
     {
         createWindow();
+        NativeMethods.Test();
         NativeMethods.TestFunction();
     }
 }
