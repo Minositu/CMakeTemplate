@@ -3,8 +3,7 @@ This is a CMake template I'll be using moving forward for my projects!
 # Prerequisites
 - cmake 3.8
 - if using VSCode the cmake VSCode extension.
-- gcc
-- g++
+- Clang from `https://github.com/llvm/llvm-project/releases`
 - If using Java JDK must be in your PATH
 
 # Compiling
