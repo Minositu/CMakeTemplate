@@ -48,6 +48,7 @@ elseif(LINUX)
   target_compile_definitions(MySuperSharedLibrary PUBLIC PLATFORM_LINUX)
 elseif(WIN32)
   message("Current OS is ${CMAKE_SYSTEM_NAME}")
+  target_compile_definitions( MySuperSharedLibrary PUBLIC EXPORT_API)
   target_compile_definitions(MySuperSharedLibrary PUBLIC PLATFORM_WIN32)
 
 endif()

@@ -1,6 +1,11 @@
 ﻿#ifdef PLATFORM_WIN32
 #include <windows.h>
 #include <string>
+#ifdef EXPORT_API
+#define API __declspec( dllexport )
+#else
+#define API __declspec( dllimport )
+#endif
 
 HINSTANCE hInstance;
 HWND hwnd;
@@ -8,7 +13,7 @@ bool shouldClose = false;
 
 LRESULT windowProcedure(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-void createWindow(std::string windowName, int posX = 0, int posY = 0, int width = 100, int height = 100)
+void API createWindow(std::string windowName, int posX = 0, int posY = 0, int width = 100, int height = 100)
 {
     hInstance = GetModuleHandle(NULL);
     STARTUPINFO si;
@@ -44,7 +49,7 @@ void createWindow(std::string windowName, int posX = 0, int posY = 0, int width 
 	UpdateWindow(hwnd);
 }
 
-bool processMessages()
+bool API processMessages()
 {
     while (!shouldClose)
     {
@@ -58,7 +63,7 @@ bool processMessages()
     return false;
 }
 
-void shutdownWindow()
+void API shutdownWindow()
 {
     return;
 }

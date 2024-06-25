@@ -77,7 +77,7 @@ void createWindow(std::string windowName, int posX = 0, int posY = 0, int width 
 bool processMessages()
 {
     xcb_generic_event_t* e = nullptr;
-    while (e = xcb_wait_for_event(c))
+    while ((e = xcb_wait_for_event(c)))
     {
         switch (e->response_type & ~0x80) {
 		case XCB_EXPOSE:
