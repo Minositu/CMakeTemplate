@@ -41,52 +41,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
-        {
-            "name": "Compile & Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "MIMode": "gdb",
-            "windows":{
-                "program": "${workspaceFolder}/build/x64-debug/MySuperExecutable.exe",
-                "MIMode": "gdb",
-                "cwd": "${workspaceFolder}/",
-                "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Set Disassembly Flavor to Intel",
-                        "text": "-gdb-set disassembly-flavor intel",
-                        "ignoreFailures": true
-                    }
-                ]
-            },
-            "linux": 
-            {
-                "program": "${workspaceFolder}/build/linux-debug/MySuperExecutable",
-                "args": [],
-                "stopAtEntry": false,
-                "cwd": "${fileDirname}",
-                "environment": [],
-                "externalConsole": false,
-                "MIMode": "gdb",
-                "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Set Disassembly Flavor to Intel",
-                        "text": "-gdb-set disassembly-flavor intel",
-                        "ignoreFailures": true
-                    }
-                ]
-            },
-            "preLaunchTask": "Build All Debug"
         }
     ]
 }
