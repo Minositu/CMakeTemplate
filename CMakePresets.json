@@ -1,5 +1,9 @@
 {
     "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25
+    },
     "configurePresets": [
         {
             "name": "windows-base",
@@ -67,13 +71,11 @@
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
             "installDir": "${sourceDir}/out/install/${presetName}",
-            "cacheVariables": 
-            {
+            "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang",
                 "CMAKE_CXX_COMPILER": "clang++"
             },
-            "condition":
-            {
+            "condition": {
                 "type": "equals",
                 "lhs": "${hostSystemName}",
                 "rhs": "Linux"
@@ -110,7 +112,6 @@
             "inherits": "android-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-
                 "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
                 "ANDROID_ABI": "arm64-v8a",
                 "ANDROID_PLATFORM": "25",
@@ -123,33 +124,6 @@
             "inherits": "android-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "MinSizeRel",
-
-                "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
-                "ANDROID_ABI": "arm64-v8a",
-                "ANDROID_PLATFORM": "25",
-                "PRESET": "${presetName}"
-            }
-        },
-        {
-            "name": "android-debug-arm64-v8a",
-            "displayName": "Android Debug arm64-v8a",
-            "inherits": "android-base",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
-
-                "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
-                "ANDROID_ABI": "arm64-v8a",
-                "ANDROID_PLATFORM": "25",
-                "PRESET": "${presetName}"
-            }
-        },
-        {
-            "name": "android-release-arm64-v8a",
-            "displayName": "Android Release arm64-v8a",
-            "inherits": "android-base",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "MinSizeRel",
-
                 "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake",
                 "ANDROID_ABI": "arm64-v8a",
                 "ANDROID_PLATFORM": "25",
@@ -176,6 +150,38 @@
                     "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
                 }
             }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "linux-debug",
+            "description": "Makes a debug build of a project with debug information.",
+            "displayName": "Standard",
+            "configurePreset": "linux-debug"
+        },
+        {
+            "name": "linux-clean-debug",
+            "description": "Cleans all the project and builds a build with debug information from scratch.",
+            "displayName": "CleanFirst",
+            "cleanFirst": true,
+            "inherits": [
+                "linux-debug"
+            ]
+        },
+        {
+            "name": "linux-release",
+            "description": "Makes a release build of a project stripping out any possible debug information.",
+            "displayName": "Standard",
+            "configurePreset": "linux-release"
+        },
+        {
+            "name": "linux-clean-release",
+            "description": "Cleans all the project and builds a release build from scratch.",
+            "displayName": "CleanFirst",
+            "cleanFirst": true,
+            "inherits": [
+                "linux-release"
+            ]
         }
     ]
 }

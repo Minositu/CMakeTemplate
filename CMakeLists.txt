@@ -1,5 +1,14 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
+option (FORCE_COLORED_OUTPUT "Always produce ANSI-colored output (GNU/Clang only)." TRUE)
+if (${FORCE_COLORED_OUTPUT})
+    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+       add_compile_options (-fdiagnostics-color=always)
+    elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+       add_compile_options (-fdiagnostics-color=always -fansi-escape-codes)
+    endif ()
+endif ()
+
 # Android error handling
 if(NOT DEFINED ENV{ANDROID_NDK_ROOT} AND ANDROID)
   message(FATAL_ERROR "Please define the environment variable ANDROID_NDK_ROOT.")
